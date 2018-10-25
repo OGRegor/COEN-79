@@ -7,14 +7,11 @@
 	
 	Purpose:
 		Implement a custom string class for Lab 5 of COEN79
-
 	Invariants:
 		The string is stored in a null terminated character array, characters. The size can be dynamically sized through each function, but 
 		this is inneficient, so the reserve function can be used to lessen the number of copies needed to be made.
-
 		Allocated represents the total size of memory that the character array is allocated to. This is reassigned
 		whenever the array is expanded or contracted.
-
 		Current_length represents the total number of characters used from the allocated memory. The null terminating 
 		character can always be found at characters[current_length]
 */
@@ -63,7 +60,6 @@ namespace coen79_lab5
     
     void string::operator +=(const string& addend)
     {
-
     	if(current_length + addend.length() + 1 > allocated)
     	{
 
@@ -100,8 +96,17 @@ namespace coen79_lab5
 
     void string::reserve(size_t n)
     {
+    	char *tmp = characters;
     	characters = new char [n];
     	allocated = n;
+    	if(allocated) 
+		{
+		for(size_t i = 0; i < n; i++)
+			{
+				characters[i] = tmp[i];
+			}
+			delete [] tmp;
+		};
     };
 
     void string::operator=(const string& source)
@@ -313,4 +318,4 @@ namespace coen79_lab5
 		for(size_t i = 0; i < arr_size(arr); i++) if(arr[i] == '\0') return 1;				
 		return 0;
 	};
-}
+};
