@@ -23,14 +23,14 @@ namespace coen79_lab6
     size_t list_length(const node* head_ptr)
     // Library facilities used: cstdlib
     {
-	const node *cursor;
-	size_t answer;
+		const node *cursor;
+		size_t answer;
 
-	answer = 0;
-	for (cursor = head_ptr; cursor != NULL; cursor = cursor->link( ))
-	    ++answer;
+		answer = 0;
+		for (cursor = head_ptr; cursor != NULL; cursor = cursor->link( ))
+			++answer;
 
-	return answer;
+		return answer;
     }
 
     void list_head_insert(node*& head_ptr, const node::value_type& entry)
@@ -147,6 +147,59 @@ namespace coen79_lab6
     	}
     }
 
-    
-    
+	// These are the ones that we implement
+	//    Precondition: start_ptr and end_ptr are pointers to nodes on the same
+	//    linked list, with the start_ptr node at or before the end_ptr node
+	//    Postcondition: head_ptr and tail_ptr are the head and tail pointers for a
+	//    new list that contains the items from start_ptr up to but not including
+	//    end_ptr.  The end_ptr may also be NULL, in which case the new list
+	//    contains elements from start_ptr to the end of the list.
+	//
+
+	void list_piece(node *start_ptr, node *end_ptr, node *&head_ptr, node *&tail_ptr)
+	{
+		/* 
+		assert(start and end are on same linked list, start ptr before end ptr)
+		copy the list from start pointer to end pointer
+		edge case for null
+		 */	
+	};
+	
+	size_t list_occurrences(node *head_ptr, const node::value_type &target)
+	{
+
+	};
+	
+	void list_insert_at(node *&head_ptr, const node::value_type &entry, size_t position)
+	{
+
+	};
+	
+	node::value_type list_remove_at(node *&head_ptr, size_t position)
+	{
+
+	};
+	
+	node *list_copy_segment(node *head_ptr, size_t start, size_t finish)
+	{
+
+	};
+	
+	void list_print(const node *head_ptr)
+	{
+		// pre: head is the head of a list, << has been defined
+		// post: value_type of all nodes has been printed
+
+	};
+	
+	void list_remove_dups(node *head_ptr)
+	{
+
+	};
+	
+	node *list_detect_loop(node *head_ptr)
+	{
+		// use floyds
+	};
+	
 }

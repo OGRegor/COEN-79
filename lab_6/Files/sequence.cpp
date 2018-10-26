@@ -41,20 +41,75 @@ namespace coen79_lab6
         precursor = NULL;
         //Initializiing many_nodes (or our counter) to 0
         many_nodes = 0;
-    }
+    };
 
     //CONSTRUCTOR IMPLEMENTATION for default constructor
-    sequence :: sequence ()
+    sequence::sequence ()
     {
         init();
-    }
+    };
 
     //Copy Constructor
-    sequence :: sequence(const sequence& source)
+    sequence::sequence(const sequence& source)
     {
         init();
         *this = source;
-    }
+    };
 
-    
+    sequence::~sequence()
+    {
+
+    };
+
+    // MODIFICATION MEMBER FUNCTIONS
+    void sequence::start()
+    {
+
+    };
+
+    void sequence::end()
+    {
+
+    };
+
+    void sequence::advance()
+    {
+
+    };
+
+    void sequence::insert(const value_type &entry)
+    {
+
+    };
+
+    void sequence::attach(const value_type &entry)
+    {
+
+    };
+
+    void sequence::operator=(const sequence &source)
+    {
+
+    };
+
+    void sequence::remove_current()
+    {
+
+    };
+
+    // CONSTANT MEMBER FUNCTIONS
+    sequence::size_type sequence::size() const 
+    {
+        return many_nodes;
+    };
+
+    bool sequence::is_item() const 
+    {
+        return cursor != NULL;
+    };
+
+    sequence::value_type sequence::current() const 
+    {
+
+    };
 }
