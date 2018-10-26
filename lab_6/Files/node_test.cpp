@@ -21,61 +21,62 @@ int main(int argc, char const *argv[]) {
     list_print(my_list);
 
     // Testing list_piece functionality.
-    {
-        cout << " *** list_piece tests *** " << endl;
-        node *head, *tail;
-        // Empty
-        list_piece(NULL,NULL,head,tail);
-        cout << "Empty: ";
-        list_print(head);
-        // Just first item.
-        list_piece(my_list,my_list,head,tail);
-        cout << "Both at head: ";
-        list_print(head);
-        // A few, starting with head.
-        list_piece(my_list,list_locate(my_list,4),head,tail);
-        cout << "Three from head: ";
-        list_print(head);
-        // A few in middle
-        list_piece(list_locate(my_list,3),list_locate(my_list,6),head,tail);
-        cout << "Three in middle: ";
-        list_print(head);
-        // A few on end
-        list_piece(list_locate(my_list,6),NULL,head,tail);
-        cout << "Three on end: ";
-        list_print(head);
-        // Just the end
-        list_piece(list_locate(my_list,list_length(my_list)),NULL,head,tail);
-        cout << "The end: ";
-        list_print(head);
-        // The whole list
-        list_piece(my_list,NULL,head,tail);
-        cout << "Full list: ";
-        list_print(head);
-    }
+    // {
+    //     cout << " *** list_piece tests *** " << endl;
+    //     node *head, *tail;
+    //     // Empty
+    //     cout << "i am calling list pice" << endl;
+    //     list_piece(NULL,NULL,head,tail);
+    //     cout << "Empty: ";
+    //     list_print(head);
+    //     list_piece(my_list,my_list,head,tail);
+    //     // Just first item.
+    //     cout << "Both at head: ";
+    //     list_print(head);
+    //     // A few, starting with head.
+    //     list_piece(my_list,list_locate(my_list,4),head,tail);
+    //     cout << "Three from head: ";
+    //     list_print(head);
+    //     // A few in middle
+    //     list_piece(list_locate(my_list,3),list_locate(my_list,6),head,tail);
+    //     cout << "Three in middle: ";
+    //     list_print(head);
+    //     // A few on end
+    //     list_piece(list_locate(my_list,6),NULL,head,tail);
+    //     cout << "Three on end: ";
+    //     list_print(head);
+    //     // Just the end
+    //     list_piece(list_locate(my_list,list_length(my_list)),NULL,head,tail);
+    //     cout << "The end: ";
+    //     list_print(head);
+    //     // The whole list
+    //     list_piece(my_list,NULL,head,tail);
+    //     cout << "Full list: ";
+    //     list_print(head);
+    // }
 
     // Testing list_copy_segment functionality.
-    {
-        cout << endl << " *** list_copy_segment tests *** " << endl;
-        // Just first item.
-        cout << "Both at head: ";
-        list_print(list_copy_segment(my_list,1,1));
-        // A few, starting with head.
-        cout << "Three from head: ";
-        list_print(list_copy_segment(my_list,1,3));
-        // A few in middle
-        cout << "Three in middle: ";
-        list_print(list_copy_segment(my_list,3,5));
-        // A few on end
-        cout << "Three on end: ";
-        list_print(list_copy_segment(my_list,6,list_length(my_list)));
-        // Just the end
-        cout << "The end: ";
-        list_print(list_copy_segment(my_list,list_length(my_list),list_length(my_list)));
-        // The whole list
-        cout << "Full list: ";
-        list_print(list_copy_segment(my_list,1,list_length(my_list)));
-    }
+    // {
+    //     cout << endl << " *** list_copy_segment tests *** " << endl;
+    //     // Just first item.
+    //     cout << "Both at head: ";
+    //     list_print(list_copy_segment(my_list,1,1));
+    //     // A few, starting with head.
+    //     cout << "Three from head: ";
+    //     list_print(list_copy_segment(my_list,1,3));
+    //     // A few in middle
+    //     cout << "Three in middle: ";
+    //     list_print(list_copy_segment(my_list,3,5));
+    //     // A few on end
+    //     cout << "Three on end: ";
+    //     list_print(list_copy_segment(my_list,6,list_length(my_list)));
+    //     // Just the end
+    //     cout << "The end: ";
+    //     list_print(list_copy_segment(my_list,list_length(my_list),list_length(my_list)));
+    //     // The whole list
+    //     cout << "Full list: ";
+    //     list_print(list_copy_segment(my_list,1,list_length(my_list)));
+    // }
 
     // Testing list_insert_at functionality.
     {
@@ -137,6 +138,7 @@ int main(int argc, char const *argv[]) {
         list_head_insert(head_ptr, 1);
         
         list_print(head_ptr);
+        cout << "do i get past this?";
         list_remove_dups(head_ptr);
         list_print(head_ptr);
     }

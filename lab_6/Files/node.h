@@ -190,6 +190,7 @@
 #ifndef COEN_79_NODE_H
 #define COEN_79_NODE_H
 #include <cstdlib> // Provides size_t and NULL
+#include <iostream>
 
 namespace coen79_lab6
 {
@@ -204,7 +205,7 @@ namespace coen79_lab6
     	{
             data_field = init_data;
             link_field = init_link;
-        }
+        };
 
     	// Member functions to set the data and link fields:
     	void set_data(const value_type& new_data) { data_field = new_data; }
