@@ -266,47 +266,54 @@ namespace coen79_lab6
 	
 	void list_print(const node *head_ptr)
 	{
-		cout << "am i seg" << endl;
-		cout << "i am the head ptr: " << head_ptr << endl;
-		if(head_ptr == NULL) 
+		const node* current = head_ptr;
+		cout << "help";
+		while(current != NULL)
 		{
-			cout << "help" << endl << "~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+			cout << current->data();
+			current = current->link();
+		};
 
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			cout << "kill me !";
-			return;
-		}
-		cout << "help help help " << endl;
-		cout << head_ptr->data();
-		cout << ", ";
-		list_print(head_ptr->link());
+		// cout << "am i seg" << endl;
+		// cout << "i am the head ptr: " << head_ptr << endl;
+		// if(head_ptr == NULL) 
+		// {
+		// 	cout << "help" << endl << "~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	cout << "kill me !";
+		// 	return;
+		// }
+		// cout << "help help help " << endl;
+		// cout << head_ptr->data();
+		// cout << ", ";
+		// list_print(head_ptr->link());
 	};
 
 	//   void list_remove_dups(node* head_ptr)
