@@ -151,23 +151,23 @@ namespace coen79_lab6
 	{
 		head_ptr = NULL;
 		tail_ptr = NULL;
-		cout << "hello" << endl;
-		if (start_ptr == NULL || start_ptr == end_ptr) 
+		return;
+		cout << "start: " << start_ptr << endl << "end: " << end_ptr << endl;
+		if (start_ptr == NULL || start_ptr == end_ptr)
 		{
-			cout << "i am here" << endl;
 			return;
 		}
+
 		cout << "hello" << endl;
 
 		list_head_insert(head_ptr, start_ptr->data());
 		tail_ptr = head_ptr;
 
-		start_ptr = start_ptr->link();
 		while (start_ptr != end_ptr)
 		{
+			start_ptr = start_ptr->link();
 			list_insert(tail_ptr, start_ptr->data());
 			tail_ptr = tail_ptr->link();
-			start_ptr = start_ptr->link();
 		}
 	};
 	
@@ -266,54 +266,15 @@ namespace coen79_lab6
 	
 	void list_print(const node *head_ptr)
 	{
-		const node* current = head_ptr;
-		cout << "help";
-		while(current != NULL)
+		if(head_ptr->link() == NULL) 
 		{
-			cout << current->data();
-			current = current->link();
-		};
-
-		// cout << "am i seg" << endl;
-		// cout << "i am the head ptr: " << head_ptr << endl;
-		// if(head_ptr == NULL) 
-		// {
-		// 	cout << "help" << endl << "~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	cout << "kill me !";
-		// 	return;
-		// }
-		// cout << "help help help " << endl;
-		// cout << head_ptr->data();
-		// cout << ", ";
-		// list_print(head_ptr->link());
+			cout << head_ptr->data();
+			cout << endl;
+			return;
+		}
+		cout << head_ptr->data();
+		cout << ", ";
+		list_print(head_ptr->link());
 	};
 
 	//   void list_remove_dups(node* head_ptr)
@@ -324,23 +285,24 @@ namespace coen79_lab6
 
 	void list_remove_dups(node *head_ptr)
 	{
+		assert(head_ptr != NULL);
 		node *iter_ptr = head_ptr;
-		cout << "am seg";
-		while(head_ptr->link() != NULL)
+		node *next_ptr = head_ptr;
+
+		while (iter_ptr != NULL && iter_ptr->link() != NULL)
 		{
-			while(iter_ptr->link() != NULL)
+			next_ptr = iter_ptr;
+			while (next_ptr->link() != NULL)
 			{
-				cout << "am seg";
-				if(iter_ptr->link()->data() == head_ptr->data()) 
+				if (iter_ptr->data() == next_ptr->link()->data())
 				{
-					cout << "am seg seg";
-					list_remove(head_ptr);
-					iter_ptr = head_ptr;
-				};
-			};
-			cout << "am seg";
-			head_ptr = head_ptr->link();
-		};
+					list_remove(next_ptr);
+				}
+				else 
+					next_ptr = next_ptr->link();
+			}
+			iter_ptr = iter_ptr->link();
+		}
 	};
 	
 	node *list_detect_loop(node *head_ptr)
