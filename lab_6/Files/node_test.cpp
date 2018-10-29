@@ -7,7 +7,7 @@ using namespace coen79_lab6;
 
 int main(int argc, char const *argv[]) {
     // Make a list.
-    node *my_list = NULL;
+    node *my_list = nullptr;
     node* temp;
     list_head_insert(my_list, 4.5);
     list_head_insert(my_list, 4);
@@ -25,8 +25,7 @@ int main(int argc, char const *argv[]) {
         cout << " *** list_piece tests *** " << endl;
         node *head, *tail;
         // Empty
-        cout << "i am calling list pice" << endl;
-        list_piece(NULL,NULL,head,tail);
+        list_piece(nullptr,nullptr,head,tail);
         cout << "Empty: ";
         list_print(head);
         list_piece(my_list,my_list,head,tail);
@@ -39,18 +38,18 @@ int main(int argc, char const *argv[]) {
         list_print(head);
         // A few in middle
         list_piece(list_locate(my_list,3),list_locate(my_list,6),head,tail);
-        cout << "Three in middle: ";
+        cout << "Three in middle: " << endl;
         list_print(head);
         // A few on end
-        list_piece(list_locate(my_list,6),NULL,head,tail);
+        list_piece(list_locate(my_list,6),nullptr,head,tail);
         cout << "Three on end: ";
         list_print(head);
         // Just the end
-        list_piece(list_locate(my_list,list_length(my_list)),NULL,head,tail);
+        list_piece(list_locate(my_list,list_length(my_list)),nullptr,head,tail);
         cout << "The end: ";
         list_print(head);
         // The whole list
-        list_piece(my_list,NULL,head,tail);
+        list_piece(my_list,nullptr,head,tail);
         cout << "Full list: ";
         list_print(head);
     }
@@ -94,7 +93,7 @@ int main(int argc, char const *argv[]) {
         cout << "Inserting 2.25 in middle:\n\t";
         list_print(my_list);
         // Insert into empty list
-        temp = NULL;
+        temp = nullptr;
         list_insert_at(temp, -4.3, 1);
         cout << "Inserting -4.3 into an empty list:\n\t";
         list_print(temp);
@@ -131,7 +130,7 @@ int main(int argc, char const *argv[]) {
     {
         cout << endl << " *** list_remove_dups tests *** " << endl;
 
-        node* head_ptr = NULL;
+        node* head_ptr = nullptr;
         list_head_insert(head_ptr, 1);
         list_head_insert(head_ptr, 1);
         list_head_insert(head_ptr, 1);
@@ -145,7 +144,7 @@ int main(int argc, char const *argv[]) {
     {
         cout << endl << " *** list_detect_loop tests *** " << endl;
 
-        node* head_ptr2 = NULL;
+        node* head_ptr2 = nullptr;
         list_head_insert(head_ptr2, 10);
         list_head_insert(head_ptr2, 9);
         list_head_insert(head_ptr2, 8);
@@ -161,9 +160,9 @@ int main(int argc, char const *argv[]) {
         tmp = list_locate (head_ptr2, 10);
         tmp->set_link(head_ptr2->link()->link()->link()->link());
         
-        node *loop_start = NULL;
+        node *loop_start = nullptr;
         loop_start = list_detect_loop(head_ptr2);
-        if (loop_start != NULL)
+        if (loop_start != nullptr)
             std::cout << "Loop start location is: " << loop_start->data() << std::endl;
     }
     
