@@ -29,7 +29,8 @@ namespace coen79_lab7
     
     company::company(const company &src) {
         Debug("Company copy constructor..." << std::endl);
-        if (*this->head_ptr == *src->get_head()){
+        
+        if (list_contains_item(this->head_ptr, src->get_name()){
             return;
         }
         *this = src;
