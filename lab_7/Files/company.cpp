@@ -23,20 +23,24 @@ namespace coen79_lab7
     
     company::company(const std::string& company_name) {
         assert(company_name.length() > 0);
-
+        strcpy(this->company_name, company_name);
         // COMPLETE THE IMPLEMENTATION...
     }
     
     company::company(const company &src) {
         Debug("Company copy constructor..." << std::endl);
-
+        if (this == src){
+            return;
+        }
+        list_clear(this->head_ptr);
+        list_copy(src->head_ptr, this->head_ptr, this->tail_ptr);
+        
         // COMPLETE THE IMPLEMENTATION...
     }
 
     
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
-
         // COMPLETE THE IMPLEMENTATION...
     }
     
