@@ -40,7 +40,7 @@ namespace coen79_lab7
     
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
-        if (*this == src){
+        if (list_contains_item(this->head_ptr, src->get_name()){
             return *this;
         }
         
