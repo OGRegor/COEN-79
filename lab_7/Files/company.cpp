@@ -115,7 +115,7 @@ namespace coen79_lab7
             return false;
         }
         else{
-            const node* cursor = this->head_ptr;
+            node* cursor = this->head_ptr;
             while (cursor->getLink() != NULL){
                 const char* next = (cursor->getLink())->getName();
                 if (std::strcmp(next, product_name) == 0){
