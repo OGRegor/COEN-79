@@ -125,9 +125,10 @@ namespace coen79_lab7
                     this->head_ptr = cursor->getLink();
                     list_head_remove(this->head_ptr);
                     return true;
-            }            
-            return false;
+                }
+                cursor = cursor->getLink();
             }
+            return false;
     }
     
     }
