@@ -90,7 +90,7 @@ namespace coen79_lab7
         
         if (head_ptr == NULL) {
             strcpy(head_ptr, product_name);
-            tail_ptr = NULL;
+            tail_ptr = head_ptr;
             head_ptr->setPrice(price);
             // COMPLETE THE IMPLEMENTATION...
         }
