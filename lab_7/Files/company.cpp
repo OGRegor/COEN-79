@@ -115,12 +115,12 @@ namespace coen79_lab7
         }
         else{
             node* cursor = this->head_ptr;
-            while (cursor->get_link() != NULL){
-                if (strcmp(((cursor->get_link())->get_name), product_name) == 0){
+            while (cursor->getLink() != NULL){
+                if (strcmp(((cursor->getLink())->get_name), product_name) == 0){
                     node * temp = this->head_ptr;
-                    temp.set_link((cursor->get_link())->get_link());
-                    cursor->set_link(temp);
-                    this->head_ptr = cursor->get_link();
+                    temp.setLink((cursor->getLink())->getLink());
+                    cursor->setLink(temp);
+                    this->head_ptr = cursor->getLink();
                     list_head_remove(this->head_ptr);
                     return true;
             }            
