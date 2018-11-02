@@ -29,7 +29,7 @@ namespace coen79_lab7
     
     company::company(const company &src) {
         Debug("Company copy constructor..." << std::endl);
-        if (this == src){
+        if (*this == src){
             return;
         }
         *this = src;
@@ -39,12 +39,12 @@ namespace coen79_lab7
     
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
-        if (this == src){
+        if (*this == src){
             return *this;
         }
         
         list_clear(this->head_ptr);
-        list_copy(src->get_head(), this->head_ptr, this->tail_ptr);
+        list_copy(src->get_head(), head_ptr, tail_ptr);
         return *this;
         // COMPLETE THE IMPLEMENTATION...
     }
@@ -95,7 +95,7 @@ namespace coen79_lab7
             // COMPLETE THE IMPLEMENTATION...
         }
         else {
-            tail_ptr->setLink() = new node(product_name, price, NULL);
+            tail_ptr->setLink(new node(product_name, price, NULL));
             tail_ptr = tail_ptr->getLink();
             // COMPLETE THE IMPLEMENTATION...
         }
