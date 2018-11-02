@@ -37,19 +37,22 @@ namespace coen79_lab7
     database::database(const database &src) {
         Debug("Copy constructor..." << std::endl);
 
-        // COMPLETE THE IMPLEMENTATION...
+        used_slots = src.used_slots;
+        aloc_slots = src.aloc_slots;
+        company_array = new company[aloc_slots];
+        *company_array = *src.company_array
     }
     
     
     database& database::operator= (const database &rhs) {
         Debug("Assignment operator..." << std::endl);
 
-        // COMPLETE THE IMPLEMENTATION...
+       return database(rhs);
     }
     
     
     database::~database() {
-        // COMPLETE THE IMPLEMENTATION...
+        delete company_array;
     }
     
     
@@ -60,9 +63,16 @@ namespace coen79_lab7
             return; // The allocated memory is already the right size.
         
         if (new_capacity < used_slots)
-            new_capacity = used_slots; // Canít allocate less than we are using.
+            new_capacity = used_slots; // Can't allocate less than we are using.
         
-        // COMPLETE THE IMPLEMENTATION...
+        company * tmp = company_array;
+        company_array = new company[new_capacity];
+        for(size_t i = 0; i < used_slots; i++)
+        {
+            company_array[i] = tmp[i];
+        }
+        aloc_slots = new_capacity;
+        delete tmp;
     }
     
     
@@ -79,7 +89,8 @@ namespace coen79_lab7
             return false;
         }
 
-        // COMPLETE THE IMPLEMENTATION...
+        company_array[used_slots++] = company(entry);
+        return true;
     }
     
     
@@ -88,8 +99,14 @@ namespace coen79_lab7
 
         assert(company.length() > 0 && product_name.length() > 0);
 
-        // COMPLETE THE IMPLEMENTATION...
-        
+
+
+        bool ret = insert_company(company);
+        ret ? size_type pos = used_slots : size_type pos = search_company(company);
+
+        company_array[pos].insert(product_name, price);
+
+        return ret;
     }
     
     
@@ -97,7 +114,14 @@ namespace coen79_lab7
         
         size_type company_index = search_company(company);
         
-        // COMPLETE THE IMPLEMENTATION...
+        size_type pos = search_company(company);
+        if(pos == -1) return false;
+        for(size_type i = pos; i < used_slots - 1; i++)
+        {
+            company_array[i] = company_array[i + 1]
+        }
+        used_slots--;
+        return true;
     }
     
     
@@ -105,7 +129,9 @@ namespace coen79_lab7
         
         assert(cName.length() > 0 && pName.length() > 0);
 
-        // COMPLETE THE IMPLEMENTATION...
+        size_type pos = search_company(cName);
+        if(pos == -1) return false;
+        return company.erase(pName);
     }
     
     
@@ -113,7 +139,8 @@ namespace coen79_lab7
     database::size_type database::search_company(const std::string& company) {
         assert(company.length() > 0);
 
-        // COMPLETE THE IMPLEMENTATION...
+        for(size_type i = 0; i < used_slots; i++) if(company_array[i].get_name() == company) return i;
+        return -1;
     }
     
     
