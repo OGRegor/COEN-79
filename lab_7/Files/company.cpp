@@ -112,6 +112,7 @@ namespace coen79_lab7
         // COMPLETE THE IMPLEMENTATION...
         if(list_search(this->head_ptr, product_name) == NULL){
             return false;
+        }
         else{
             node* cursor = this->head_ptr;
             while (cursor->get_link() != NULL){
@@ -121,11 +122,11 @@ namespace coen79_lab7
                     cursor->set_link(temp);
                     this->head_ptr = cursor->get_link();
                     list_head_remove(this->head_ptr);
+                    return true;
+            }            
+            return false;
             }
-            cursor->set_link((cursor->get_link())->get_link());
-            
-            
     }
     
-    
-}
+    }
+    }
