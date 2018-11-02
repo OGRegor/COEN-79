@@ -23,7 +23,7 @@ namespace coen79_lab7
     
     company::company(const std::string& company_name) {
         assert(company_name.length() > 0);
-        std::strcpy(thiscompany_name, company_name);
+        std::strcpy(this->company_name, company_name);
         (this->head_ptr)->setName(company_name);
         // COMPLETE THE IMPLEMENTATION...
     }
