@@ -32,15 +32,20 @@ namespace coen79_lab7
         if (this == src){
             return;
         }
-        list_clear(this->head_ptr);
-        list_copy(src->head_ptr, this->head_ptr, this->tail_ptr);
-        
+        *this = src;
         // COMPLETE THE IMPLEMENTATION...
     }
 
     
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
+        if (this == src){
+            return;
+        }
+        
+        list_clear(this->head_ptr);
+        list_copy(src->head_ptr, this->head_ptr, this->tail_ptr);
+        return this;
         // COMPLETE THE IMPLEMENTATION...
     }
     
@@ -84,9 +89,14 @@ namespace coen79_lab7
         }
         
         if (head_ptr == NULL) {
+            strcpy(head_ptr, product_name);
+            tail_ptr = NULL;
+            head_ptr->setPrice(price);
             // COMPLETE THE IMPLEMENTATION...
         }
         else {
+            tail_ptr->setLink() = new node(product_name, price, NULL);
+            tail_ptr = tail_ptr->getLink();
             // COMPLETE THE IMPLEMENTATION...
         }
         
