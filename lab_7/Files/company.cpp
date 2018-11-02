@@ -110,6 +110,21 @@ namespace coen79_lab7
         assert(product_name.length() > 0);
 
         // COMPLETE THE IMPLEMENTATION...
+        if(list_search(this->head_ptr, product_name) == NULL){
+            return false;
+        else{
+            node* cursor = this->head_ptr;
+            while (cursor->get_link() != NULL){
+                if (strcmp(((cursor->get_link())->get_name), product_name) == 0){
+                    node * temp = this->head_ptr;
+                    temp.set_link((cursor->get_link())->get_link());
+                    cursor->set_link(temp);
+                    this->head_ptr = cursor->get_link();
+                    list_head_remove(this->head_ptr);
+            }
+            cursor->set_link((cursor->get_link())->get_link());
+            
+            
     }
     
     
