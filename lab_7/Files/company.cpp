@@ -40,12 +40,12 @@ namespace coen79_lab7
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
         if (this == src){
-            return this;
+            return *this;
         }
         
         list_clear(this->head_ptr);
-        list_copy(src->head_ptr, this->head_ptr, this->tail_ptr);
-        return this;
+        list_copy(src->get_head(), this->head_ptr, this->tail_ptr);
+        return *this;
         // COMPLETE THE IMPLEMENTATION...
     }
     
