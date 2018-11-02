@@ -48,23 +48,21 @@ namespace coen79_lab7
     
     
     void list_tail_insert(node*& tail, const std::string &newName, const float &newPrice) {
-
-        assert(newName != nullptr);
         tail->setLink(new node(newName, newPrice, nullptr));
         tail = tail->getLink();
     }
     
     
-    void list_clear(node*& head) {
+	void list_clear(node*& head) {
         if(head == nullptr) return;
         node *tmp = head;
         while(head != nullptr)
         {
-            head = head->get_link();
+            head = head->getLink();
             delete tmp;
             tmp = head;
         }
-    }
+    };
     
     
     void list_copy(const node *old_head, node* &new_head, node* &new_tail) {
