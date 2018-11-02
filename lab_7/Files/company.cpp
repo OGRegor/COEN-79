@@ -23,7 +23,7 @@ namespace coen79_lab7
     
     company::company(const std::string& company_name) {
         assert(company_name.length() > 0);
-        strcpy(this->company_name, company_name);
+        std::strcpy(this->company_name, company_name);
         // COMPLETE THE IMPLEMENTATION...
     }
     
@@ -40,7 +40,7 @@ namespace coen79_lab7
     company& company::operator= (const company &src) {
         Debug("Company assignemnt operator..." << std::endl);
         if (this == src){
-            return;
+            return this;
         }
         
         list_clear(this->head_ptr);
@@ -89,7 +89,7 @@ namespace coen79_lab7
         }
         
         if (head_ptr == NULL) {
-            strcpy(head_ptr, product_name);
+            std::strcpy(head_ptr, product_name);
             tail_ptr = head_ptr;
             head_ptr->setPrice(price);
             // COMPLETE THE IMPLEMENTATION...
