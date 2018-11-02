@@ -116,9 +116,9 @@ namespace coen79_lab7
         else{
             node* cursor = this->head_ptr;
             while (cursor->getLink() != NULL){
-                if (strcmp(((cursor->getLink())->get_name), product_name) == 0){
+                if (strcmp(((cursor->getLink())->getName), product_name) == 0){
                     node * temp = this->head_ptr;
-                    temp.setLink((cursor->getLink())->getLink());
+                    temp->setLink((cursor->getLink())->getLink());
                     cursor->setLink(temp);
                     this->head_ptr = cursor->getLink();
                     list_head_remove(this->head_ptr);
