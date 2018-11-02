@@ -117,7 +117,7 @@ namespace coen79_lab7
         else{
             node* cursor = this->head_ptr;
             while (cursor->getLink() != NULL){
-                if (std::strcmp(((cursor->getLink())->getName()), product_name) == 0){
+                if ((cursor->getLink())->getName() == product_name){
                     node * temp = this->head_ptr;
                     temp->setLink((cursor->getLink())->getLink());
                     cursor->setLink(temp);
