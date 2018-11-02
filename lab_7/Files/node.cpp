@@ -57,8 +57,13 @@ namespace coen79_lab7
     
     void list_clear(node*& head) {
         if(head == nullptr) return;
-        list_clear(head->getLink());
-        delete head;
+        node *tmp = head;
+        while(head != nullptr)
+        {
+            head = head->get_link();
+            delete tmp;
+            tmp = head;
+        }
     }
     
     
