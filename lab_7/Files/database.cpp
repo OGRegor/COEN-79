@@ -40,14 +40,16 @@ namespace coen79_lab7
         used_slots = src.used_slots;
         aloc_slots = src.aloc_slots;
         company_array = new company[aloc_slots];
-        *company_array = *src.company_array
+        *company_array = *src.company_array;
     }
     
     
     database& database::operator= (const database &rhs) {
         Debug("Assignment operator..." << std::endl);
 
-       return database(rhs);
+        database* tmp = new database(rhs);
+
+       return *tmp;
     }
     
     
@@ -102,7 +104,8 @@ namespace coen79_lab7
 
 
         bool ret = insert_company(company);
-        ret ? size_type pos = used_slots : size_type pos = search_company(company);
+        size_type pos;
+        ret ? pos = used_slots : pos = search_company(company);
 
         company_array[pos].insert(product_name, price);
 
@@ -118,7 +121,7 @@ namespace coen79_lab7
         if(pos == -1) return false;
         for(size_type i = pos; i < used_slots - 1; i++)
         {
-            company_array[i] = company_array[i + 1]
+            company_array[i] = company_array[i + 1];
         }
         used_slots--;
         return true;
@@ -131,7 +134,7 @@ namespace coen79_lab7
 
         size_type pos = search_company(cName);
         if(pos == -1) return false;
-        return company.erase(pName);
+        return company_array[pos].erase(pName);
     }
     
     
