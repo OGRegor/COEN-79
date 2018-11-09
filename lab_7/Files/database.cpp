@@ -142,7 +142,11 @@ namespace coen79_lab7
     database::size_type database::search_company(const std::string& company) {
         assert(company.length() > 0);
 
-        for(size_type i = 0; i < used_slots; i++) if(company_array[i].get_name() == company) return i;
+        for(size_type i = 0; i < used_slots; i++){
+            if(company_array[i].get_name() == company){
+                return i;
+            }
+        }
         return -1;
     }
     
